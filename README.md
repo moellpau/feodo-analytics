@@ -1,6 +1,7 @@
 # Big Data Analytics
 
 Paula - hello world
+Eric - We all are Datascientist
 
 ## Getting started
 
