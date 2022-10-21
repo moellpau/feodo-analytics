@@ -1,7 +1,7 @@
 # Big Data Analytics
 
 Paula - hello world
-Eric - We all are Datascientist
+Eric - We all are Datascientist v2 testo
 Friederike - shoot me
 
 ## Getting started
