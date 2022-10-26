@@ -2,6 +2,7 @@
 
 Paula - hello world
 Eric - We all are Datascientist v2 testo
+Friederike - shoot me
 
 ## Getting started
 
