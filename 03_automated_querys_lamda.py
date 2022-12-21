@@ -2,7 +2,7 @@ import requests
 import lib
 
 
-def queryFeodo():
+def queryFeodo(event, context):
     x = requests.get('https://feodotracker.abuse.ch/downloads/ipblocklist_recommended.json#')
 
     data = x.json()
