@@ -1,20 +1,8 @@
 import json
 from datetime import datetime
+import lib
 
-def cleanDate(input):
-    try:
-        date_object = datetime.strptime(input, "%Y-%m-%d")
-        return date_object
-    except:
-        try:
-            date_object = datetime.strptime(input, "%Y.%m.%d")
-            return date_object
-        except:
-            try:
-                date_object = datetime.strptime(input, "%d.%m.%Y")
-                return date_object
-            except:
-                print("unknow format")
+
 
 file_names = [
     "feodotracker-02-01-2022.json",
@@ -36,18 +24,7 @@ for file in file_names:
         data = json.load(json_file)
         
         for entry in data:
-            date = cleanDate(entry["last_online"]).isoformat()[:10]
-           
-            results.append(
-                {
-                    "id": "{}_{}_{}_{}".format(index, date, entry["as_number"], entry["ip_address"]),
-                    "ip_address": entry["ip_address"],
-                    "as_number": entry["as_number"],
-                    "as_name": entry["as_name"],
-                    "country": entry["country"],
-                    "date": date,
-                }
-            )
+            results.append(lib.entryFormatting(index, entry))
             index +=1
 
 
