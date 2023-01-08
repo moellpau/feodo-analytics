@@ -3,21 +3,23 @@ import pandas as pd
 df = pd.read_csv(r'DynamoDB_results.csv')
 pd.DataFrame(df)
 
-dates = ["2022-01-02",
-        "2022-01-03",
-        "2022-01-04",
-        "2022-01-05",
-        "2022-01-06",
-        "2022-01-07",
-        "2022-01-08",
-        "2022-01-09",
-        "2022-01-10",
-        "2022-12-21",
-        "2022-12-22",
-        "2022-12-23",
+dates_old = ["2022-01-02", 
+        "2022-01-03", 
+        "2022-01-04", 
+        "2022-01-05", 
+        "2022-01-06", 
+        "2022-01-07", 
+        "2022-01-08", 
+        "2022-01-09", 
+        "2022-01-10"]
+
+dates_new = ["2022-12-21", 
+        "2022-12-22", 
+        "2022-12-23", 
         "2022-12-24",
         "2022-12-25"]
 
+dates = dates_old + dates_new
 results = pd.DataFrame(columns=['date','total_ips', 'total_server', 'total_server_changed', 'total_ips_changed', 'percent_changed_ips'])
 
 for date in dates:
@@ -36,3 +38,11 @@ for date in dates:
     results.loc[len(results.index)] = [date, total_ips, total_server, total_server_changed, total_ips_changed, percent_changed_ips]
 
 print(results)
+
+jan_df = df[df['date'].isin(dates_old)]
+region_results_jan = pd.DataFrame(jan_df.groupby("country")["as_name"].count())
+print(region_results_jan)
+
+dec_df = df[df['date'].isin(dates_new)]
+region_results_dec = pd.DataFrame(dec_df.groupby("country")["as_name"].count())
+print(region_results_dec)
