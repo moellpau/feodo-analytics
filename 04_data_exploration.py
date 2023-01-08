@@ -1,37 +1,38 @@
-import json
 import pandas as pd
 
-data = []
+df = pd.read_csv(r'DynamoDB_results.csv')
+pd.DataFrame(df)
 
-with open("old_data/all_old_data.json", "r") as json_file:
-    data = json.load(json_file)
+dates = ["2022-01-02",
+        "2022-01-03",
+        "2022-01-04",
+        "2022-01-05",
+        "2022-01-06",
+        "2022-01-07",
+        "2022-01-08",
+        "2022-01-09",
+        "2022-01-10",
+        "2022-12-21",
+        "2022-12-22",
+        "2022-12-23",
+        "2022-12-24",
+        "2022-12-25"]
 
-#print(data)
+results = pd.DataFrame(columns=['date','total_ips', 'total_server', 'total_server_changed', 'total_ips_changed', 'percent_changed_ips'])
 
-df = pd.DataFrame.from_dict(data, orient='columns')
-#print(df)
+for date in dates:
+    date_df = df[df['date']==date]
 
-df_02 = df[df['date']=='2022-01-02']
-print(df_02)
+    total_ips = date_df['ip_address'].nunique()
+    total_server = date_df['as_name'].nunique()
 
-total_ips = df_02['ip_address'].nunique()
-print(total_ips)
+    server_ips_df = pd.DataFrame(date_df.groupby("as_name")["ip_address"].nunique())
+    server_ips_df = server_ips_df[server_ips_df['ip_address']>1]
 
-total_server = df_02['as_name'].nunique()
-print(total_server)
+    total_server_changed = server_ips_df[server_ips_df.columns[0]].count()
+    total_ips_changed = server_ips_df['ip_address'].sum()
+    percent_changed_ips = round(((total_ips_changed / total_ips) *100),2)
 
-server_ips_df = pd.DataFrame(df_02.groupby("as_name")["ip_address"].nunique())
-server_ips_df = server_ips_df[server_ips_df['ip_address']>1]
-print(server_ips_df)
+    results.loc[len(results.index)] = [date, total_ips, total_server, total_server_changed, total_ips_changed, percent_changed_ips]
 
-total_server_changed = server_ips_df[server_ips_df.columns[0]].count()
-print(total_server_changed)
-
-
-total_ips_changed = server_ips_df['ip_address'].sum()
-print(total_ips_changed)
-
-percent_changed_ips = total_ips_changed / total_ips *100
-print(percent_changed_ips)
-
-#alle server filtern nach, die die mehr als 1 stehen hat (Summe) - dann überall -1 rechnen und die Summe von allen IP addressen für alle Server
+print(results)
