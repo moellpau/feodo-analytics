@@ -1,22 +1,20 @@
 # Big Data Analytics
 
-Authors: Eric Beier, Friederike Marby and Paula Möller
+Authors: Eric Beier, Friederike Marby and Paula Möller <br>
 Date: 2023-01-26
 
 ## Description
 This project is part of a module Big Data Analytics at HTW Berlin - Master Wirtschaftsinformatik.
 
-Source Code
-•Clean Code
-•code conventions
-•KISS/YAGNI
-•runnable on every machine/ possible to deploy in a cloud environment - 
-fuer den Cloud Einsatz gibt es extra Punkte. Tipp: AWS Lambda!
+Source Code <br>
+* Clean Code
+* Code conventions
+* KISS/YAGNI
+* runnable on every machine/ possible to deploy in a cloud environment - fuer den Cloud Einsatz gibt es extra Punkte. Tipp: AWS Lambda!
 
 Rough overview of the technologies used
-•architecture diagram(draw.io) > 
-https://aws.amazon.com/de/architecture/icons/
-•Readme/ HowTo (*.md) > https://www.makeareadme.com
+* architecture diagram(draw.io) > https://aws.amazon.com/de/architecture/icons/
+* Readme/ HowTo (*.md) > https://www.makeareadme.com
 
 GitLab
 Eine saubere Arbeitsweise in GitLab. Plant eure Arbeit, verwenden die Funktion zum abschätzen des Arbeitsaufwandes und der investierten Zeit.
