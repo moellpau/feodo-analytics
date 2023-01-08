@@ -34,7 +34,7 @@ fuer ein Automatisierungsskript gibt es extra Punkte.
 nur die Änderung der IPs ist ausreichend(manchmal ändert sich der Port oder andere Dinge).
 
 ##### A3.5 - Visual Report fuer A3.4
-hier habt ihr freie Hand und könnt euch austoben: Balkendigramme, Zeitreihen oder eine Map, etc. ist hier fein. Erklärt kurz warum ihr die Art der Visualisierung verwendet habt.
+hier habt ihr freie Hand und könnt euch austoben: Balkendiagramme, Zeitreihen oder eine Map, etc. ist hier fein. Erklärt kurz warum ihr die Art der Visualisierung verwendet habt.
 
 ##### A3.6 Erstellt eine Wordcloud
 Bitte erstellt zwei Wordcouds mit mit den Laendercodes wo die meisten C&Cs zu finden sind. 1x fuer Januar 2022 und einmal eine aktuelle Darstellung.
@@ -42,6 +42,12 @@ Bitte erstellt zwei Wordcouds mit mit den Laendercodes wo die meisten C&Cs zu fi
 ## Archicture diagram and used technologies
 ![Architecture diagram](/visuals/architecture_diagram.png)*Architecture diagram*
 
+#### Used technologies
+* Dynanmo DB
+* AWS Lambda
+* Local Python scripts
+
 ## How to execute & run
 
+Explain how to run and execute our code, installed/used libraries and lambda function
 Runnable on every machine (Win, Linux, Mac)
