@@ -1,6 +1,7 @@
 import pandas as pd
 
-df = pd.read_csv(r'DynamoDB_results.csv')
+#df = pd.read_csv(r'DynamoDB_results.csv') 
+df = pd.read_json("https://j6a7cppundv7t2fsdwke3tpkiu0qwyoo.lambda-url.eu-central-1.on.aws/")
 pd.DataFrame(df)
 
 dates_old = ["2022-01-02", 
@@ -46,3 +47,8 @@ print(region_results_jan)
 dec_df = df[df['date'].isin(dates_new)]
 region_results_dec = pd.DataFrame(dec_df.groupby("country")["as_name"].count())
 print(region_results_dec)
+
+# Speichern der dataframes als csv's
+results.to_csv("exported_dataframes/results_ip_server.csv")
+jan_df.to_csv("exported_dataframes/country_codes_jan.csv")
+dec_df.to_csv("exported_dataframes/country_codes_dec.csv")
