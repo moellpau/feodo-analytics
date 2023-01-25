@@ -1,9 +1,11 @@
+#Importing packages
 import pandas as pd
 
-#df = pd.read_csv(r'DynamoDB_results.csv') 
+#Call AWS DynamoDB to get all feodo data
 df = pd.read_json("https://j6a7cppundv7t2fsdwke3tpkiu0qwyoo.lambda-url.eu-central-1.on.aws/")
 pd.DataFrame(df)
 
+#Create list for dates with dates_old and dates_new
 dates_old = ["2022-01-02", 
         "2022-01-03", 
         "2022-01-04", 
@@ -20,9 +22,11 @@ dates_new = ["2022-12-21",
         "2022-12-24",
         "2022-12-25"]
 
+#Combine list -> so machen wie in data_exploration_new?
 dates = dates_old + dates_new
 results = pd.DataFrame(columns=['date','total_ips', 'total_server', 'total_server_changed', 'total_ips_changed', 'percent_changed_ips'])
 
+#Loop through each date
 for date in dates:
     date_df = df[df['date']==date]
 
@@ -48,7 +52,7 @@ dec_df = df[df['date'].isin(dates_new)]
 region_results_dec = pd.DataFrame(dec_df.groupby("country")["as_name"].count())
 print(region_results_dec)
 
-# Speichern der dataframes als csv's
+#Export dataframes as csv's'
 results.to_csv("exported_dataframes/results_ip_server.csv")
 jan_df.to_csv("exported_dataframes/country_codes_jan.csv")
 dec_df.to_csv("exported_dataframes/country_codes_dec.csv")

@@ -1,13 +1,15 @@
+#importing packages
 import pandas as pd
 import numpy as np
 
-#df = pd.read_csv(r'DynamoDB_results.csv') 
+#call AWS DynamoDB to get all feodo data
 # df = pd.read_json("https://j6a7cppundv7t2fsdwke3tpkiu0qwyoo.lambda-url.eu-central-1.on.aws/")
 # df.to_json("cache.json")
 
 df = pd.read_json("cache.json")
 pd.DataFrame(df)
 
+#create months list for January and Dezember dates
 months = [
         ["2022-01-02", 
         "2022-01-03", 
@@ -27,9 +29,13 @@ months = [
 
 results = []
 
+#loop over month
 for month in months:
+
+        #define month_result dataframe
         month_result = pd.DataFrame(columns=['date','total_previous_ips', 'total_current_ips', 'total_growth_percentage', 'same_ips', 'new_ips', 'portion_new_ips'])
-        
+
+        #loop thorugh each entry in month list
         for i in range(1,len(month)):
                 date_current = month[i]
                 date_previous = month[i-1]
@@ -57,7 +63,7 @@ for month in months:
         
         results.append(month_result)
 
-
+#Export results as csv
 results[0].to_csv("exported_dataframes/results_comparison_jan.csv")
 results[1].to_csv("exported_dataframes/results_comparison_dec.csv")
 

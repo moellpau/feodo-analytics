@@ -1,9 +1,9 @@
+#Importing packages
 import boto3
 import json
-
 from decimal import Decimal
 
-#Um Dictionary-Einträge in JSON umzuwandeln (damit Dezimalobjekt aus AWS DynamoDB verstanden wird + in integer umgwandelt wird)
+#To convert dictionary entries to JSON (so that decimal object from AWS DynamoDB is understood and converted to integer)
 class DecimalEncoder(json.JSONEncoder):
   def default(self, obj):
     if isinstance(obj, Decimal):
@@ -24,7 +24,7 @@ def exportData(event, context):
         'body': json.dumps(results, cls=DecimalEncoder)
     }
 
-#Wird nur ausgeführt, wenn py-Datei direkt aufgerufen wird (nicht wenn sie nur als lib eingebunden wird)
+#Will be executed only if py file is called directly (not if it is included only as lib)
 if __name__ == "__main__":
     res = exportData(None, None)
 
