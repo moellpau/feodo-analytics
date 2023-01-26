@@ -51,7 +51,6 @@ Please create two word clouds with the country codes where most of the C&Cs can 
 
 Before you can execute and run our code you need to install Python and the following library.
 
-**Installed and used libraries**
 * Boto3
 ```
 pip install boto3
