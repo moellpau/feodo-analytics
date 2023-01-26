@@ -1,7 +1,7 @@
 # Big Data Analytics
 
 Authors: Eric Beier, Friederike Marby and Paula Möller <br>
-Date: 2023-01-26
+Date: 2023-02-09
 
 ## Description
 This project is part of the module Big Data Analytics at HTW Berlin - Master Wirtschaftsinformatik.
@@ -43,7 +43,7 @@ Please create two word clouds with the country codes where most of the C&Cs can 
 ![Architecture diagram](/visuals/architecture_diagram.png)*Architecture diagram*
 
 #### Used technologies
-* Dynanmo DB
+* AWS DynanmoDB
 * AWS Lambda
 * Local Python scripts
 
@@ -59,7 +59,7 @@ pip install boto3
 
 In this project we used AWS Lambda as an event-driven, serverless computing platform provided by Amazon as part of Amazon Web Services. Therefore we defined and used the following Lambda functions.
 
-**Lambda Functions***
+**Lambda Functions**
 * AutomatedQueryFeodoDaily - https://oxc77jgxqgt4pv77ojwz22icbq0hcpsx.lambda-url.eu-central-1.on.aws/
 * dataExportDynamoDB - https://j6a7cppundv7t2fsdwke3tpkiu0qwyoo.lambda-url.eu-central-1.on.aws/
 
