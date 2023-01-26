@@ -65,6 +65,6 @@ In this project we used AWS Lambda as an event-driven, serverless computing plat
 
 Our code is runnable on every machine (Win, Linux, Mac).
 
-## Results and visualisation
+## Results and visualizations
 
 Added by Eric
