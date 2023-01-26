@@ -16,6 +16,7 @@ def queryFeodo(event, context):
     print(results)
     lib.uploadToDynamoDB(results)
 
+#Lambda function handler
 if __name__ == "__main__":
     queryFeodo()
 

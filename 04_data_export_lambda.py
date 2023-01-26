@@ -10,6 +10,7 @@ class DecimalEncoder(json.JSONEncoder):
       return int(obj)
     return json.JSONEncoder.default(self, obj)
 
+#Function to download data from DynamoDB
 def downloadFromDynamoDB():
     client = boto3.resource('dynamodb')
     table = client.Table("feodo_collection")
@@ -17,6 +18,7 @@ def downloadFromDynamoDB():
     results = table.scan()
     return results["Items"]
 
+#Function to export data
 def exportData(event, context):
     results = downloadFromDynamoDB()
     return {

@@ -1,6 +1,8 @@
+#Importing packages
 from datetime import datetime
 import boto3
 
+#Function to reformat dates in needed format
 def cleanDate(input):
     try:
         date_object = datetime.strptime(input, "%Y-%m-%d")
@@ -16,7 +18,7 @@ def cleanDate(input):
             except:
                 print("unknow format")
 
-
+#Function to change format of json file to needed format
 def entryFormatting(index, entry):
     date = cleanDate(entry["last_online"]).isoformat()[:10]
            
@@ -29,7 +31,7 @@ def entryFormatting(index, entry):
         "date": date,
     }
 
-
+#Function to upload data to AWS DynamoDB
 def uploadToDynamoDB(data):
     client = boto3.resource('dynamodb')
     table = client.Table("feodo_collection")

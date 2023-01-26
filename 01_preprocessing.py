@@ -20,7 +20,7 @@ index = 0
 
 #Loop over each json file
 for file in file_names:
-    #Open json file
+    #Open and load json file
     with open("old_data/"+file, "r") as json_file:
         data = json.load(json_file)
         #For each entry, append to results and apply function entryFormatting from lib
