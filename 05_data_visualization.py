@@ -13,8 +13,8 @@ df_new = pd.DataFrame(resultsIPServer_new)
 # create compared Dataset
 days = ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7", "Day 8"]
 df_both = pd.DataFrame(df_old['total_previous_ips'])
-df_both = df_both.rename(columns={"total_previous_ips": 'January_Ips'})
-df_both['December_Ips'] = df_new['total_previous_ips']
+df_both = df_both.rename(columns={"total_previous_ips": 'January'})
+df_both['December'] = df_new['total_previous_ips']
 df_both['day'] = days
 df_both['January_changePerc'] = df_new['total_growth_percentage']
 df_both['December_changePerc'] = df_new['total_growth_percentage']
@@ -27,12 +27,13 @@ color2 = "#212c4f"
 ### Methoden ###
 def barPlotBothIps(df, title, savename):
     # Plot anlegen und Legende ausrichten
-    ipChanges = df.plot.bar(x='day', y=["December_Ips", 'January_Ips'], rot=0, color={color1, color2})
+    ipChanges = df.plot.bar(x='day', y=["December", 'January'], rot=0, color={color1, color2})
     _ = ipChanges.legend(bbox_to_anchor=(0.4, -0.2), loc='lower center', ncol=3, fancybox=True, shadow=True)
-    # ipChanges.get_legend().remove()
+
     ipChanges.set_title(title)
     ipChanges.set(xlabel=None)
-    ipChanges.set(ylabel="Anzahl IP Adressen")
+    ipChanges.set(ylabel=None)
+    #ipChanges.set(ylabel="Number of IP addresses")
 
     # Speichern und Anzeigen des Plots
     plt.tight_layout()
@@ -42,12 +43,13 @@ def barPlotBothIps(df, title, savename):
 # Erzeugt einen Barplot zum Vergleich der neuen IPs in Prozent pro Tag
 def barPlotGrowthPercentage(df, title, savename, x , y, yRange, color):
     # Plot anlegen und Legende entfernen, da nur ein Wert in Legende
-    newIps = df.plot(x=x, y=y, kind='bar', color=color)
-    newIps.get_legend().remove()
-    newIps.set_title(title)
+    growIps = df.plot(x=x, y=y, kind='bar', color=color)
+    growIps.axhline(y=0, color='black', linewidth=1)
+    growIps.get_legend().remove()
+    growIps.set_title(title)
 
     #Axen anoassen
-    newIps.set(xlabel=None)
+    growIps.set(xlabel=None)
     plt.yticks(yRange)
     plt.xticks(rotation=90)
     plt.tight_layout()
@@ -96,14 +98,16 @@ def compareDFs(names):
 def compareBarPlot(df, xLabels, title, savename):
     # Plot anlegen und Legende ausrichten
     compare = df.plot.bar(x='Kategory', y=[0, 1], color={color1, color2})
+    compare.axhline(y=0, color='black', linewidth=1)
     L = plt.legend(loc="upper center")
-    L.get_texts()[0].set_text('Daten von Januar')
-    L.get_texts()[1].set_text('Daten von Dezember')
+    L.get_texts()[0].set_text('January')
+    L.get_texts()[1].set_text('December')
 
     # Axen und Titel
     compare.set_title(title)
     compare.set_xticklabels(xLabels, rotation=0)
     compare.set(xlabel=None)
+    plt.yticks(range(-12, 16, 3))
 
     # Speichern und Anzeigen des Plots
     plt.tight_layout()
@@ -113,7 +117,7 @@ def compareBarPlot(df, xLabels, title, savename):
 ### Aufrufe zur Aufgabenlösung ####
 
 # Nr. 1 Compare Total Jan & Dec
-barPlotBothIps(df_both, "Number of IP addresses per day | January 2022", 'CompareJanDec')
+barPlotBothIps(df_both, "Number of IP addresses per day | 2022", 'CompareJanDec')
 
 # Nr. 2 January growth from day to day in Percentages
 barPlotGrowthPercentage(df_old, 'January growth from day to day in Percentages', "JanGrowthPercent", 'date', 'total_growth_percentage', range(-6, 7, 2), color2)
