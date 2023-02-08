@@ -21,6 +21,7 @@ df_both['December_changePerc'] = df_new['total_growth_percentage']
 df_both['January_newPerc'] = df_new['portion_new_ips']
 df_both['December_newPerc'] = df_new['portion_new_ips']
 
+# colors to paint the bars
 color1 = "#38761d"
 color2 = "#212c4f"
 
@@ -132,6 +133,6 @@ barPlotNewIpsPercentage(df_old, 'New IP-Addresses in January from day to day in 
 barPlotNewIpsPercentage(df_new, 'New IP-Addresses in December from day to day in Percentages', "DecNewIpsPercent", 'date', 'portion_new_ips', color1)
 
 # Nr. 6 Average Percentages new Ips and growth per day
-namesT = 'total_growth_percentage', 'portion_new_ips'
+namesPerc = 'total_growth_percentage', 'portion_new_ips'
 xLabels_Percentage = ["Growth in Percentages", "New IPs in Percentages"]
-compareBarPlot(compareDFs(namesT), xLabels_Percentage, "Compare January and December in Percentages", "comparePercentJanDec")
+compareBarPlot(compareDFs(namesPerc), xLabels_Percentage, "Compare January and December in Percentages", "comparePercentJanDec")
