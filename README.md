@@ -65,49 +65,39 @@ In this project we used AWS Lambda as an event-driven, serverless computing plat
 Our code is runnable on every machine (Win, Linux, Mac).
 
 ## Results and visualizations
-**Task 3.2** 
-To look at the differences in the IP lists in January, 3 plots were made. One that shows the number of IP addresses for each day and the previous day for comparison. 
-It can be seen that the number of IP addresses is always in the range of 300. A horizontal bar chart was chosen because it clearly shows both the data and the differences in the number. 
-The scaling was chosen so that this diagram can be compared with the later diagram of the December data.
+
+In general, we choose bar charts because all other kinds of charts would not work. A line graph would suggest that there is data between the dates. But it is only one 
+data point per day. A graph with points would have the same logic as the bar charts, hower it is more confusing and not that clearly arranged. Pie Charts does not work 
+at all for our data, because we do not have data split. 
+
+**IP Address changes**
+
+We created one plot to show the difference of total IP addresses between January and December. Because of shorter data for December there is no bar for days 5 to 8. 
+
+![](plots/CompareJanDec.png)
+
+**Change of total Ip Addresses per Day in Percentages**
+
+To show the difference numbers per day of each data set, we created a barchart for each dataset.
+
+![](plots/JanGrowthPercent.png)
+
+![](plots/DecGrowthPercent.png)
 
 
-![](plots/3_2-IPnumbersJan22.png)
 
+**New IP Addresses per Day in Percentages**
 
-The second plot shows the number of new IP addresses over days. Again a bar chart was chosen. This representation makes it possible to quickly see the differences between the days.
-Furthermore, this is not a time series where the previous day's data plays a role in the current day's data. Therefore, a line chart would possibly be confusing, as these are often 
-used for time series data where the days have an influence on each other. The labels of the X-axis were rotated so that they are easier to read and do not overlap each other. 
-The scaling was chosen so that this diagram can be compared with the later diagram of the December data.
+Every day the IP Adresses are changing. The following diagrams shows the difference per day for each dataset.
 
-![](plots/3_2-newIpsJan22.png)
+![](plots/JanNewIpsPercent.png)
+![](plots/DecNewIpsPercent.png)
 
+**Compare Average Percentages between Datasets**
 
-The third plot represents the percentage changes in the new IP addresses. Once again, the bar chart is the best choice. Although these are percentage values, but they stand for themselves 
-and cannot be shown in a pie chart. The scaling was chosen so that this diagram can be compared with the later diagram of the December data.
+To see the differences in one shot, we calculated the averages and put them into one graph.
 
-
-![](plots/3_2-newIpsProzentJan22.png)
-
-
-**Task 3.4**
-
-The first part and thus the first 3 plots were chosen for the same reasons as task 3.2. This makes a direct comparison possible. Furthermore, 2 diagrams were made comparing the average 
-values of the January dataset and the December dataset. Bar charts were also chosen here, as the differences between the individual data sets can be differences between the individual 
-data sets. 
-
-![](plots/3_4-IPnumbersDez22.png) ![](plots/3_4-newIpsDez22.png) ![](plots/3_4-newIpsProzentDez22.png)
-
-The following plots show the differences between the January and December data. Here you can see the number(left) of new IPs per day and in percent(right). The scale shows the number 
-as well as the IPs in percent, as both are in the range of 3-30 or 3%-30%. 
-
-![](plots/3_4-VglAnzahlIpsJan-Dez.png)
-
-
-The last plot shows the numbers of all IP addresses. Here, too, a bar chart made the most sense, as it is the only way to get a clear overview of all three key figures. 
-
-
-![](plots/3_4-VglAnzahlneueIPsJan-Dez.png)
-
+![](plots/comparePercentJanDec.png)
 
 **Task 3.6 Wordcloud**
 Two word clouds visualize in with countries most of the C&Cs can be found. To demonstrate the countries the different country codes are used
