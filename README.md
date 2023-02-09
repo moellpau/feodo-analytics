@@ -56,6 +56,16 @@ Before you can execute and run our code you need to install Python and the follo
 pip install boto3
 ```
 
+* Wordcloud
+```
+pip install wordcloud
+```
+
+* Mathplotlib
+```
+pip install mathplotlib
+```
+
 In this project we used AWS Lambda as an event-driven, serverless computing platform provided by Amazon as part of Amazon Web Services. Therefore we defined and used the following Lambda functions.
 
 **Lambda Functions**
