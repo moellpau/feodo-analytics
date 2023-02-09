@@ -1,6 +1,5 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from pandas.core.dtypes.generic import ABCSeries
 
 # Import Daten von Januar
 resultsIPServer_old = pd.read_csv('exported_dataframes/results_comparison_jan.csv')
