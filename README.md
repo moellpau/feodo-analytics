@@ -66,17 +66,18 @@ Our code is runnable on every machine (Win, Linux, Mac).
 
 ## Results and visualizations
 
+**Task 3.2 and 3.5** <br>
 In general, we choose bar charts because all other kinds of charts would not work. A line graph would suggest that there is data between the dates. But it is only one 
 data point per day. A graph with points would have the same logic as the bar charts, hower it is more confusing and not that clearly arranged. Pie Charts does not work 
 at all for our data, because we do not have data split. 
 
-**IP Address changes**
+**IP address changes**
 
-We created one plot to show the difference of total IP addresses between January and December. Because of shorter data for December there is no bar for days 5 to 8. 
+We created one plot to show the difference of total IP addresses between January and December. Because of less data for December there is no bar for days 5 to 8. 
 
 ![](plots/CompareJanDec.png)
 
-**Change of total Ip Addresses per Day in Percentages**
+**Change of total IP addresses per day in percentages**
 
 To show the difference numbers per day of each data set, we created a barchart for each dataset.
 
@@ -88,7 +89,7 @@ To show the difference numbers per day of each data set, we created a barchart f
 
 **New IP Addresses per Day in Percentages**
 
-Every day the IP Adresses are changing. The following diagrams shows the difference per day for each dataset.
+Every day the IP adresses are changing. The following diagrams shows the difference per day for each dataset.
 
 ![](plots/JanNewIpsPercent.png)
 ![](plots/DecNewIpsPercent.png)
@@ -99,7 +100,7 @@ To see the differences in one shot, we calculated the averages and put them into
 
 ![](plots/comparePercentJanDec.png)
 
-**Task 3.6 Wordcloud**
+**Task 3.6 Wordcloud** <br>
 Two word clouds visualize in with countries most of the C&Cs can be found. To demonstrate the countries the different country codes are used
 
 January:
