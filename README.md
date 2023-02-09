@@ -87,14 +87,14 @@ To show the difference numbers per day of each data set, we created a barchart f
 
 
 
-**New IP Addresses per Day in Percentages**
+**New IP addresses per day in percentages**
 
 Every day the IP adresses are changing. The following diagrams shows the difference per day for each dataset.
 
 ![](plots/JanNewIpsPercent.png)
 ![](plots/DecNewIpsPercent.png)
 
-**Compare Average Percentages between Datasets**
+**Compare average percentages between datasets**
 
 To see the differences in one shot, we calculated the averages and put them into one graph.
 
